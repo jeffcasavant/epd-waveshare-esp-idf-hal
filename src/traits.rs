@@ -1,8 +1,5 @@
 use core::marker::Sized;
-use embedded_hal::{
-    blocking::{delay::*, spi::Write},
-    digital::v2::*,
-};
+use embedded_hal::{blocking::spi::Write, delay::DelayUs, digital::v2::*};
 
 /// All commands need to have this trait which gives the address of the command
 /// which needs to be send via SPI with activated CommandsPin (Data/Command Pin in CommandMode)

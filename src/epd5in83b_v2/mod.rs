@@ -7,7 +7,8 @@
 //! - [Waveshare Python driver](https://github.com/waveshare/e-Paper/blob/master/RaspberryPi_JetsonNano/python/lib/waveshare_epd/epd5in83b_V2.py)
 
 use embedded_hal::{
-    blocking::{delay::*, spi::Write},
+    blocking::spi::Write,
+    delay::DelayUs,
     digital::v2::{InputPin, OutputPin},
 };
 

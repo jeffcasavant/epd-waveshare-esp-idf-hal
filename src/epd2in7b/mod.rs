@@ -2,10 +2,7 @@
 //!
 //! [Documentation](https://www.waveshare.com/wiki/2.7inch_e-Paper_HAT_(B))
 
-use embedded_hal::{
-    blocking::{delay::*, spi::Write},
-    digital::v2::*,
-};
+use embedded_hal::{blocking::spi::Write, delay::DelayUs, digital::v2::*};
 
 use crate::interface::DisplayInterface;
 use crate::traits::{

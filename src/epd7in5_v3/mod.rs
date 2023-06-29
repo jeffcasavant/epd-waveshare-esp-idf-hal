@@ -8,7 +8,8 @@
 //!
 
 use embedded_hal::{
-    blocking::{delay::*, spi::Write},
+    blocking::spi::Write,
+    delay::DelayUs,
     digital::v2::{InputPin, OutputPin},
 };
 

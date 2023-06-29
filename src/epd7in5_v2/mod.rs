@@ -11,7 +11,8 @@
 //! The hardware and interface of V2 are compatible with V1, however, the related software should be updated.
 
 use embedded_hal::{
-    blocking::{delay::*, spi::Write},
+    blocking::spi::Write,
+    delay::DelayUs,
     digital::v2::{InputPin, OutputPin},
 };
 

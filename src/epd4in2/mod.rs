@@ -49,10 +49,7 @@
 //!
 //! BE CAREFUL! The screen can get ghosting/burn-ins through the Partial Fast Update Drawing.
 
-use embedded_hal::{
-    blocking::{delay::*, spi::Write},
-    digital::v2::*,
-};
+use embedded_hal::{blocking::spi::Write, delay::DelayUs, digital::v2::*};
 
 use crate::interface::DisplayInterface;
 use crate::traits::{InternalWiAdditions, QuickRefresh, RefreshLut, WaveshareDisplay};

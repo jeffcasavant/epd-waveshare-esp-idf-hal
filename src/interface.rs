@@ -1,9 +1,6 @@
 use crate::traits::Command;
 use core::marker::PhantomData;
-use embedded_hal::{
-    blocking::{delay::*, spi::Write},
-    digital::v2::*,
-};
+use embedded_hal::{blocking::spi::Write, delay::DelayUs, digital::v2::*};
 
 /// The Connection Interface of all (?) Waveshare EPD-Devices
 ///

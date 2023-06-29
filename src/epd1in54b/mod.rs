@@ -1,9 +1,6 @@
 //! A simple Driver for the Waveshare 1.54" (B) E-Ink Display via SPI
 
-use embedded_hal::{
-    blocking::{delay::*, spi::Write},
-    digital::v2::*,
-};
+use embedded_hal::{blocking::spi::Write, delay::DelayUs, digital::v2::*};
 
 use crate::interface::DisplayInterface;
 use crate::traits::{

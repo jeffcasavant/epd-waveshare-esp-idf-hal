@@ -17,6 +17,7 @@
 
 use embedded_hal::{
     blocking::{delay::*, spi::Write},
+    delay::DelayUs,
     digital::v2::{InputPin, OutputPin},
 };
 

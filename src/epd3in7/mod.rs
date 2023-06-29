@@ -3,7 +3,8 @@
 //!
 //! Build with the help of documentation/code from [Waveshare](https://www.waveshare.com/wiki/3.7inch_e-Paper_HAT),
 use embedded_hal::{
-    blocking::{delay::DelayUs, spi::Write},
+    blocking::spi::Write,
+    delay::DelayUs,
     digital::v2::{InputPin, OutputPin},
 };
 
