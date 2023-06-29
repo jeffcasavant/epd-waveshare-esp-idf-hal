@@ -1,6 +1,7 @@
 # Generated files
 **/target
 **/*.rs.bk
+/.embuild
 
 
 # The library shouldn't decide about the exact versions of 
