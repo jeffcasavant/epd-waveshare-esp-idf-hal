@@ -55,7 +55,7 @@
 //!# }
 //!```
 use embedded_hal::{
-    blocking::spi::SpiDeviceWrite,
+    spi::SpiDeviceWrite,
     delay::DelayUs,
     digital::{InputPin, OutputPin},
 };
