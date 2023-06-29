@@ -54,7 +54,12 @@
 //!# Ok(())
 //!# }
 //!```
-use embedded_hal::{blocking::spi::Write, delay::DelayUs, digital::v2::*};
+use embedded_hal::{
+    blocking::spi::Write,
+    delay::DelayUs,
+    digital::v2::*,
+    digital::{InputPin, OutputPin},
+};
 
 use crate::interface::DisplayInterface;
 use crate::traits::{

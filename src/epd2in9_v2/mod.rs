@@ -74,7 +74,12 @@ const LUT_PARTIAL_2IN9: [u8; 159] = [
     0x22, 0x0, 0x0, 0x0, 0x22, 0x17, 0x41, 0xB0, 0x32, 0x36,
 ];
 
-use embedded_hal::{blocking::spi::Write, delay::DelayUs, digital::v2::*};
+use embedded_hal::{
+    blocking::spi::Write,
+    delay::DelayUs,
+    digital::v2::*,
+    digital::{InputPin, OutputPin},
+};
 
 use crate::type_a::command::Command;
 

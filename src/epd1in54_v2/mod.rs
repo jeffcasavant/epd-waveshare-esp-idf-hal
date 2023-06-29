@@ -10,7 +10,12 @@ pub const HEIGHT: u32 = 200;
 pub const DEFAULT_BACKGROUND_COLOR: Color = Color::White;
 const IS_BUSY_LOW: bool = false;
 
-use embedded_hal::{blocking::spi::Write, delay::DelayUs, digital::v2::*};
+use embedded_hal::{
+    blocking::spi::Write,
+    delay::DelayUs,
+    digital::v2::*,
+    digital::{InputPin, OutputPin},
+};
 
 use crate::type_a::command::Command;
 
