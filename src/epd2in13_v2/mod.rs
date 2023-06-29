@@ -87,7 +87,7 @@ where
     BUSY: InputPin,
     DC: OutputPin,
     RST: OutputPin,
-    DELAY: DelayUs<u32>,
+    DELAY: DelayUs,
 {
     fn init(&mut self, spi: &mut SPI, delay: &mut DELAY) -> Result<(), SPI::Error> {
         // HW reset
@@ -181,7 +181,7 @@ where
     BUSY: InputPin,
     DC: OutputPin,
     RST: OutputPin,
-    DELAY: DelayUs<u32>,
+    DELAY: DelayUs,
 {
     type DisplayColor = Color;
     fn new(
@@ -395,7 +395,7 @@ where
     BUSY: InputPin,
     DC: OutputPin,
     RST: OutputPin,
-    DELAY: DelayUs<u32>,
+    DELAY: DelayUs,
 {
     /// When using partial refresh, the controller uses the provided buffer for
     /// comparison with new buffer.

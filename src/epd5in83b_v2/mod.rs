@@ -57,7 +57,7 @@ where
     BUSY: InputPin,
     DC: OutputPin,
     RST: OutputPin,
-    DELAY: DelayUs<u32>,
+    DELAY: DelayUs,
 {
     fn init(&mut self, spi: &mut SPI, delay: &mut DELAY) -> Result<(), SPI::Error> {
         // Reset the device
@@ -102,7 +102,7 @@ where
     BUSY: InputPin,
     DC: OutputPin,
     RST: OutputPin,
-    DELAY: DelayUs<u32>,
+    DELAY: DelayUs,
 {
     fn update_color_frame(
         &mut self,
@@ -147,7 +147,7 @@ where
     BUSY: InputPin,
     DC: OutputPin,
     RST: OutputPin,
-    DELAY: DelayUs<u32>,
+    DELAY: DelayUs,
 {
     type DisplayColor = Color;
     fn new(
@@ -312,7 +312,7 @@ where
     BUSY: InputPin,
     DC: OutputPin,
     RST: OutputPin,
-    DELAY: DelayUs<u32>,
+    DELAY: DelayUs,
 {
     fn command(&mut self, spi: &mut SPI, command: Command) -> Result<(), SPI::Error> {
         self.interface.cmd(spi, command)

@@ -95,7 +95,7 @@ where
     BUSY: InputPin,
     DC: OutputPin,
     RST: OutputPin,
-    DELAY: DelayUs<u32>,
+    DELAY: DelayUs,
 {
     fn init(&mut self, spi: &mut SPI, delay: &mut DELAY) -> Result<(), SPI::Error> {
         self.interface.reset(delay, 10_000, 10_000);
@@ -147,7 +147,7 @@ where
     BUSY: InputPin,
     DC: OutputPin,
     RST: OutputPin,
-    DELAY: DelayUs<u32>,
+    DELAY: DelayUs,
 {
     type DisplayColor = Color;
     fn width(&self) -> u32 {
@@ -303,7 +303,7 @@ where
     BUSY: InputPin,
     DC: OutputPin,
     RST: OutputPin,
-    DELAY: DelayUs<u32>,
+    DELAY: DelayUs,
 {
     fn use_full_frame(&mut self, spi: &mut SPI, delay: &mut DELAY) -> Result<(), SPI::Error> {
         // choose full frame/ram

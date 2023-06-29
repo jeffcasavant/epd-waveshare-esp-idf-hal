@@ -32,7 +32,7 @@ where
     BUSY: InputPin,
     DC: OutputPin,
     RST: OutputPin,
-    DELAY: DelayUs<u32>,
+    DELAY: DelayUs,
 {
     /// Creates a new `DisplayInterface` struct
     ///
