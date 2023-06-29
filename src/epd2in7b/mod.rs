@@ -3,10 +3,9 @@
 //! [Documentation](https://www.waveshare.com/wiki/2.7inch_e-Paper_HAT_(B))
 
 use embedded_hal::{
-    blocking::spi::Write,
     delay::DelayUs,
-    digital::v2::*,
     digital::{InputPin, OutputPin},
+    spi::SpiDeviceWrite,
 };
 
 use crate::interface::DisplayInterface;
@@ -54,7 +53,7 @@ pub struct Epd2in7b<SPI, CS, BUSY, DC, RST, DELAY> {
 impl<SPI, CS, BUSY, DC, RST, DELAY> InternalWiAdditions<SPI, CS, BUSY, DC, RST, DELAY>
     for Epd2in7b<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,
@@ -120,7 +119,7 @@ where
 impl<SPI, CS, BUSY, DC, RST, DELAY> WaveshareDisplay<SPI, CS, BUSY, DC, RST, DELAY>
     for Epd2in7b<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,
@@ -283,7 +282,7 @@ where
 impl<SPI, CS, BUSY, DC, RST, DELAY> WaveshareThreeColorDisplay<SPI, CS, BUSY, DC, RST, DELAY>
     for Epd2in7b<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,
@@ -339,7 +338,7 @@ where
 
 impl<SPI, CS, BUSY, DC, RST, DELAY> Epd2in7b<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,

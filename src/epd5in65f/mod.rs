@@ -7,9 +7,9 @@
 //! - [Waveshare Python driver](https://github.com/waveshare/e-Paper/blob/master/RaspberryPi%26JetsonNano/python/lib/waveshare_epd/epd5in65f.py)
 
 use embedded_hal::{
-    blocking::spi::Write,
     delay::DelayUs,
-    digital::v2::{InputPin, OutputPin},
+    digital::{InputPin, OutputPin},
+    spi::SpiDeviceWrite,
 };
 
 use crate::color::OctColor;
@@ -49,7 +49,7 @@ pub struct Epd5in65f<SPI, CS, BUSY, DC, RST, DELAY> {
 impl<SPI, CS, BUSY, DC, RST, DELAY> InternalWiAdditions<SPI, CS, BUSY, DC, RST, DELAY>
     for Epd5in65f<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,
@@ -82,7 +82,7 @@ where
 impl<SPI, CS, BUSY, DC, RST, DELAY> WaveshareDisplay<SPI, CS, BUSY, DC, RST, DELAY>
     for Epd5in65f<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,
@@ -210,7 +210,7 @@ where
 
 impl<SPI, CS, BUSY, DC, RST, DELAY> Epd5in65f<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,

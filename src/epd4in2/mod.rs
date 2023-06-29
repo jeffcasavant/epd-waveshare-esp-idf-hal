@@ -50,10 +50,9 @@
 //! BE CAREFUL! The screen can get ghosting/burn-ins through the Partial Fast Update Drawing.
 
 use embedded_hal::{
-    blocking::spi::Write,
     delay::DelayUs,
-    digital::v2::*,
     digital::{InputPin, OutputPin},
+    spi::SpiDeviceWrite,
 };
 
 use crate::interface::DisplayInterface;
@@ -101,7 +100,7 @@ pub struct Epd4in2<SPI, CS, BUSY, DC, RST, DELAY> {
 impl<SPI, CS, BUSY, DC, RST, DELAY> InternalWiAdditions<SPI, CS, BUSY, DC, RST, DELAY>
     for Epd4in2<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,
@@ -156,7 +155,7 @@ where
 impl<SPI, CS, BUSY, DC, RST, DELAY> WaveshareDisplay<SPI, CS, BUSY, DC, RST, DELAY>
     for Epd4in2<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,
@@ -357,7 +356,7 @@ where
 
 impl<SPI, CS, BUSY, DC, RST, DELAY> Epd4in2<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,
@@ -453,7 +452,7 @@ where
 impl<SPI, CS, BUSY, DC, RST, DELAY> QuickRefresh<SPI, CS, BUSY, DC, RST, DELAY>
     for Epd4in2<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,

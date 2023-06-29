@@ -54,10 +54,9 @@ pub const DEFAULT_BACKGROUND_COLOR: Color = Color::White;
 const IS_BUSY_LOW: bool = false;
 
 use embedded_hal::{
-    blocking::spi::Write,
     delay::DelayUs,
-    digital::v2::*,
     digital::{InputPin, OutputPin},
+    spi::SpiDeviceWrite,
 };
 
 use crate::type_a::{
@@ -94,7 +93,7 @@ pub struct Epd1in54<SPI, CS, BUSY, DC, RST, DELAY> {
 
 impl<SPI, CS, BUSY, DC, RST, DELAY> Epd1in54<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,
@@ -150,7 +149,7 @@ where
 impl<SPI, CS, BUSY, DC, RST, E, DELAY> WaveshareDisplay<SPI, CS, BUSY, DC, RST, DELAY>
     for Epd1in54<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8, Error = E>,
+    SPI: SpiDeviceWrite<u8, Error = E>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,
@@ -303,7 +302,7 @@ where
 
 impl<SPI, CS, BUSY, DC, RST, DELAY> Epd1in54<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,

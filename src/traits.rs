@@ -1,9 +1,8 @@
 use core::marker::Sized;
 use embedded_hal::{
-    blocking::spi::Write,
     delay::DelayUs,
-    digital::v2::*,
     digital::{InputPin, OutputPin},
+    spi::SpiDeviceWrite,
 };
 
 /// All commands need to have this trait which gives the address of the command
@@ -25,7 +24,7 @@ pub enum RefreshLut {
 
 pub(crate) trait InternalWiAdditions<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,
@@ -49,7 +48,7 @@ where
 pub trait WaveshareThreeColorDisplay<SPI, CS, BUSY, DC, RST, DELAY>:
     WaveshareDisplay<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,
@@ -135,7 +134,7 @@ where
 ///```
 pub trait WaveshareDisplay<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,
@@ -296,7 +295,7 @@ where
 ///```
 pub trait QuickRefresh<SPI, CS, BUSY, DC, RST, DELAY>
 where
-    SPI: Write<u8>,
+    SPI: SpiDeviceWrite<u8>,
     CS: OutputPin,
     BUSY: InputPin,
     DC: OutputPin,
