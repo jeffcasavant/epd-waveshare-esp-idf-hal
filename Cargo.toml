@@ -1,7 +1,7 @@
 [package]
 authors = ["Christoph Groß <caemor@mailbox.org>"]
 categories = ["embedded", "hardware-support", "no-std"]
-description = "An embedded-hal based driver for ePaper displays from Waveshare formerly published as eink-waveshare-rs"
+description = "An esp-idf-hal based driver for ePaper displays from Waveshare forked from epd-waveshare"
 documentation = "https://docs.rs/epd-waveshare"
 homepage = "https://github.com/caemor/epd-waveshare"
 keywords = ["ePaper", "Display", "epd", "eink"]
@@ -44,6 +44,7 @@ bit_field = "0.10.1"
 esp-idf-sys = { version = "0.33", default-features = false }
 esp-idf-hal = { version = "0.41", optional = true, default-features = false }
 esp-idf-svc = { version = "0.46", optional = true, default-features = false }
+embedded-hal = "=1.0.0-alpha.10"
 embedded-svc = { version = "0.25", optional = true, default-features = false }
 
 [build-dependencies]
